@@ -1,0 +1,36 @@
+{% extends 'web_app/base.html' %}
+{% block title %}Главная{% endblock %}
+{% block content %}
+<div class="container">
+	<h1 class="main_title">Таблица сверки</h1>
+	<table class="table_list" cellspacing="2" cellpadding="0">
+		<tr class="bg_h">
+			<th>№ записи</th>
+			<th>СНИЛС</th>
+			<th>Фамилия</th>
+			<th>Имя</th>
+			<th>Отчество</th>
+			<th>Дата рождения</th>
+			<th>Ответственный отдел</th>
+			<th>Отметка о корректировке</th>
+		</tr>
+		{% for el in main_table %}
+		<tr>
+			<form>
+				<td>{{ el.pk }}</td>
+				<td>{{ el.snils }}</td>
+				<td>{{ el.surname_spu }}</td>
+				<td>{{ el.name_spu }}</td>
+				<td>{{ el.patronymic_spu }}</td>
+				<td>{{ el.date_of_birth_spu }}</td>
+				<td>{{ el.responsible_department }}</td>
+				<td>{{ el.correction_mark }}</td>
+				<td align="center"><input type="submit" value="Изменить" class="review_btn"><a
+						href="{% url 'record' el.pk"></a>
+				</td>
+			</form>
+		</tr>
+		{% endfor %}
+	</table>
+</div>
+{% endblock %}

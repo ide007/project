@@ -1,6 +1,10 @@
 {% extends 'web_app/base.html' %}
-{% block title %} {{ record.name }} {% endblock %}
+{% block title %} {{ record.snils }} {% endblock %}
 {% block content %}
-<p>RECORD</p>
-<h1>{{ record.snils }}</h1>
+	<form action="/record/{{ record.pk }}" method="post" name="record">
+        {% csrf_token %}
+        {{ form.as_p }}
+		<button type="button">Сохранить изменения</button>
+<!--    <input type="submit" value="Submit">-->
+	</form>
 {% endblock %}

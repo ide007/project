@@ -6,7 +6,7 @@ class MainTable(models.Model):
         yes = 'ОТЛЧ',
         no = '---'
 
-    # slug = models.SlugField(max_length=200, db_index=True)
+    # slug = models.SlugField(max_length=200, db_index=True, unique=True)
 
     code_region_fbdp = models.IntegerField(
         verbose_name="Код региона-района ФБДП",
@@ -125,14 +125,14 @@ class MainTable(models.Model):
     gender_spu = models.CharField(
         verbose_name="Пол СПУ",
         help_text="Пол СПУ",
-        max_length=1,
+        max_length=7,
         blank=False,
         null=False,
     )
     gender_fbdp = models.CharField(
         verbose_name="Пол ФБДП",
         help_text="Пол ФБДП",
-        max_length=1,
+        max_length=7,
         blank=False,
         null=False,
     )
